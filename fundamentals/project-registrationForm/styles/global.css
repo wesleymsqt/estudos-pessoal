@@ -47,6 +47,8 @@
 }
 
 body {
+  overflow: hidden;
+
   font: var(--text);
   color: var(--text-primary);
   background-color: var(--surface-primary);
