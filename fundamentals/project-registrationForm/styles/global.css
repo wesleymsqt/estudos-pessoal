@@ -42,21 +42,27 @@
   --h2: 800 24px/120% var(--font-family);
   --h3: 800 20px/120% var(--font-family);
   --h4: 800 16px/120% var(--font-family);
-  --text-span: 600 14px/120% var(--font-family);
-  --text: 400 14px/160% var(--font-family);
+  --text-span: 600 0.875/1.4 var(--font-family);
+  --text: 400 1rem/1.5 var(--font-family);
 }
 
 body {
   overflow: hidden;
 
   font: var(--text);
-  color: var(--text-primary);
-  background-color: var(--surface-primary);
+  color: var(--text-secondary);
 }
+
 
 h1,
 h2,
 h3,
 h4 {
-  font: inherit;
+  color: var(--text-primary);
+  /* font: inherit; */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
