@@ -42,7 +42,7 @@
   --h2: 800 24px/120% var(--font-family);
   --h3: 800 20px/120% var(--font-family);
   --h4: 800 16px/120% var(--font-family);
-  --text-span: 600 0.875/1.4 var(--font-family);
+  --text-sm: 600 0.875/1.4 var(--font-family);
   --text: 400 1rem/1.5 var(--font-family);
 }
 
