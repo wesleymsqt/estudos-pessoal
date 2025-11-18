@@ -57,3 +57,31 @@ select {
 .address-info .flex {
   gap: 1.25rem;
 }
+
+input {
+  & invalid {
+    border-color: .125rem solid var(--semantic-error);
+  }
+
+  & + small {
+    color: var(--text-tertiary);
+    font: var(--text-sm);
+
+    display: inline-block;
+    margin-top: 0.25rem;
+  }
+
+  &[required] + .error {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    margin-top: 0.25rem;
+    color: var(--semantic-error);
+    font: var(--text-sm);
+  }
+
+  &:not(:focus):valid + .error {
+    display: none;
+  }
+}
