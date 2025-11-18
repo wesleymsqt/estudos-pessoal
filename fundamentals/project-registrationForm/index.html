@@ -71,7 +71,12 @@
                 <label for="birth-file">Certidão de nascimento:</label>
 
                 <div class="dropzone">
-                  <input type="file" id="birth-file" name="birth-file" />
+                  <input
+                    type="file"
+                    id="birth-file"
+                    name="birth-file"
+                    tabindex="-1"
+                  />
 
                   <svg
                     width="48"
@@ -135,15 +140,6 @@
                   <input type="date" name="number" id="number" />
                 </div>
               </div>
-
-              <div class="select-wrapper">
-                <label for="gender">Sexo</label>
-                <select name="select" id="gender">
-                  <option value="female">Masculino</option>
-                  <option value="male" selected>Feminino</option>
-                  <option value="na" selected>Prefiro não responder</option>
-                </select>
-              </div>
             </fieldset>
 
             <fieldset class="gardian-info">
@@ -161,10 +157,14 @@
               </div>
 
               <div class="input-wrapper">
-                <label for="mal">Email</label>
-                <input type="email" name="mal" id="mal" required />
+                <label for="mail">Email</label>
+                <input type="email" name="mail" id="mail" required />
+
                 <div class="error">
-                  <img src="assets/icons/alert-circle.svg" alt="Ícone de alerta" />
+                  <img
+                    src="assets/icons/alert-circle.svg"
+                    alt="Ícone de alerta"
+                  />
                   <span>Insira um email valido</span>
                 </div>
               </div>

@@ -81,7 +81,7 @@ input {
     font: var(--text-sm);
   }
 
-  &:not(:focus):valid + .error {
+  &:not(:focus) + .error {
     display: none;
   }
 }
