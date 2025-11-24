@@ -1,0 +1,13 @@
+.container {
+  --max-width: 375px;
+  width: min(var(--max-width), 100% - var(--px-lg) * 2);
+  margin-inline: auto;
+  border: solid 1px red;
+}
+
+
+@media (width >= 80em) {
+  .container {
+    --max-width: 80rem;
+  }
+}
