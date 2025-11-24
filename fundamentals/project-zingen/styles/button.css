@@ -44,11 +44,10 @@
   font-size: 1.125rem;
 }
 
-
-.btn[aria-label]{
+.btn[aria-label] {
   position: relative;
 
-  &::before{
+  &::before {
     content: "";
     position: absolute;
     border-radius: inherit;
@@ -56,7 +55,7 @@
     background-color: var(--bg-color);
   }
 
-  &::after{
+  &::after {
     content: attr(aria-label);
     background: var(--btn-bg-color);
     -webkit-background-clip: text;
