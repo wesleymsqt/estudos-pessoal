@@ -1,22 +1,18 @@
-// Cotação de moedas do dia.
 const USD = 4.87;
 const EUR = 5.32;
 const GBP = 6.08;
 
-// Obtendo os elementos do formulário.
 const form = document.querySelector("form");
 const amount = document.getElementById("amount");
 const currency = document.getElementById("currency");
 const footer = document.querySelector("main footer");
 const description = document.getElementById("description");
 
-// Manipulando o input amount para receber somente números.
 amount.addEventListener("input", () => {
   const hasCharactersRegex = /\D+/g;
   amount.value = amount.value.replace(hasCharactersRegex, "");
 });
 
-// Captando o evento de submit (enviar) do formulário.
 form.onsubmit = (event) => {
   event.preventDefault();
 
@@ -32,3 +28,22 @@ form.onsubmit = (event) => {
       break;
   }
 };
+
+function convertCurrency(amount, price, symbol) {
+  try {
+    description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`;
+
+    footer.classList.add("show-result");
+  } catch (error) {
+    console.error("Erro na conversão de moeda:", error);
+    description.textContent = "Erro ao converter. Tente novamente.";
+    footer.classList.add("show-result");
+  }
+}
+
+function formatCurrencyBRL(value) {
+  return Number(value).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+}
