@@ -57,8 +57,13 @@ function expenseAdd(newExpense) {
       .toUpperCase()
       .replace("R$", "")}`;
 
+    const removeIcon = document.createElement("img");
+    removeIcon.setAttribute("src", "img/remove.svg");
+    removeIcon.setAttribute("alt", "Remover despesa");
+    removeIcon.classList.add("remove-icon");
+
     expenseInfo.append(expenseName, expenseCategory);
-    expenseItem.append(expenseIcon, expenseInfo, expenseAmount);
+    expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon);
     expenseList.append(expenseItem);
   } catch (error) {
     alert("Não foi possível atualizar a lista de despesas.");
