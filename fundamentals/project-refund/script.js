@@ -39,6 +39,7 @@ function expenseAdd(newExpense) {
   try {
     const expenseItem = document.createElement("li");
     expenseItem.classList.add("expense");
+    expenseItem.setAttribute("data-id", newExpense.id);
 
     const expenseIcon = document.createElement("img");
     expenseIcon.setAttribute("src", `img/${newExpense.category_id}.svg`);
@@ -63,6 +64,10 @@ function expenseAdd(newExpense) {
     removeIcon.setAttribute("alt", "Remover despesa");
     removeIcon.classList.add("remove-icon");
 
+    removeIcon.onclick = () => {
+      expenseRemove(expenseItem);
+    };
+
     expenseInfo.append(expenseName, expenseCategory);
     expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon);
     expenseList.append(expenseItem);
@@ -70,6 +75,17 @@ function expenseAdd(newExpense) {
     updateTotals();
   } catch (error) {
     alert("Não foi possível atualizar a lista de despesas.");
+    console.log(error);
+  }
+}
+
+function expenseRemove(expenseItem) {
+  try {
+    expenseList.removeChild(expenseItem);
+
+    updateTotals();
+  } catch (error) {
+    alert("Não foi possível remover a despesa.");
     console.log(error);
   }
 }
