@@ -126,3 +126,19 @@
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
 }
+
+/* --- Ícone de Mostrar/Ocultar Senha --- */
+.toggle-password {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+  color: #acacac; 
+  transition: 0.3s;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
