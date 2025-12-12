@@ -16,6 +16,28 @@
   }
 }
 
+.search-container {
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  border-radius: 99px;
+  transition: 0.3s;
+}
+
+#search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  width: 200px;
+  color: #333;
+}
+
+.search-container:focus-within {
+  outline: 2px solid var(--primary-color, #5995fd);
+  background-color: #fff;
+}
+
 #secondary {
   padding-block: 14px;
   border-top: 1px solid var(--stroke-color);
