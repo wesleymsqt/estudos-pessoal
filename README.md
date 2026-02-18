@@ -1,4 +1,3 @@
-# Personal Study Repository
 
 This repository is for storing content related to my personal studies. Here you will find notes, exercises, projects, code, and experiments that I am developing throughout my learning in various areas.
 
