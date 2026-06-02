@@ -33,6 +33,23 @@ export function CreateUserForm() {
           defaultValue={""}
           required
         />
+        <InputText
+          type="password"
+          name="password"
+          labelText="Senha"
+          placeholder="Sua senha"
+          disabled={false}
+          required
+        />
+        <InputText
+          type="password"
+          name="password2"
+          labelText="Repetir senha"
+          placeholder="Sua senha novamente"
+          disabled={false}
+          required
+        />
+
         
       </form>
     </div>
