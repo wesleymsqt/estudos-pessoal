@@ -50,7 +50,14 @@ export function CreateUserForm() {
           required
         />
 
-        
+        <Button disabled={false} type="submit" className="mt-4">
+          <UserRoundIcon />
+          Criar conta
+        </Button>
+
+        <p className="text-sm/tight">
+          <Link href="/login">Já tem conta? Entrar</Link>
+        </p>
       </form>
     </div>
   );
