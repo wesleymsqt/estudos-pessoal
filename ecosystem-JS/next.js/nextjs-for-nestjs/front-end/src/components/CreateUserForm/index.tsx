@@ -15,6 +15,24 @@ export function CreateUserForm() {
       )}
     >
       <form action={""} className="flex-1 flex flex-col gap-6">
+        <InputText
+          type="text"
+          name="name"
+          labelText="Nome"
+          placeholder="Seu nome"
+          disabled={false}
+          defaultValue={""}
+          required
+        />
+        <InputText
+          type="email"
+          name="email"
+          labelText="E-mail"
+          placeholder="Sua e-mail"
+          disabled={false}
+          defaultValue={""}
+          required
+        />
         
       </form>
     </div>
