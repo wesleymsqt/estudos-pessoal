@@ -28,7 +28,16 @@ export async function createUserAction(
     };
   }
 
-  
+  const formObj = Object.fromEntries(formData.entries());
+  const parsedFormData = CreateUserSchema.safeParse(formObj);
+
+  if (!parsedFormData.success) {
+    return {
+      user: PublicUserSchema.parse(formObj),
+      errors: getZodErrorMessages(parsedFormData.error.format()),
+      success: false,
+    };
+  }
 
   // FETCH API
 
