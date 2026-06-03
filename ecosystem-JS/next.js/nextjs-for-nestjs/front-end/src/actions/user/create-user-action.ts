@@ -14,5 +14,17 @@ type CreateUserActionState = {
   success: boolean;
 };
 
+export async function createUserAction(
+  state: CreateUserActionState,
+  formData: FormData,
+): Promise<CreateUserActionState> {
+  await asyncDelay(3000);
 
+  
+
+  return {
+    user: state.user,
+    errors: [],
+    success: true,
+  };
 }
