@@ -8,5 +8,11 @@ import {
 import { asyncDelay } from "@/utils/async-delay";
 import { getZodErrorMessages } from "@/utils/get-zod-error-messages";
 
+type CreateUserActionState = {
+  user: PublicUserDto;
+  errors: string[];
+  success: boolean;
+};
+
 
 }
