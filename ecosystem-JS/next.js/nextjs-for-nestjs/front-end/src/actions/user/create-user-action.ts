@@ -20,7 +20,17 @@ export async function createUserAction(
 ): Promise<CreateUserActionState> {
   await asyncDelay(3000);
 
+  if (!(formData instanceof FormData)) {
+    return {
+      user: state.user,
+      errors: ["Dados inválidos"],
+      success: false,
+    };
+  }
+
   
+
+  // FETCH API
 
   return {
     user: state.user,
