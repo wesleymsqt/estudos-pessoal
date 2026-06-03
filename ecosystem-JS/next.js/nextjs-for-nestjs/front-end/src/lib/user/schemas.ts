@@ -1,30 +1,30 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 // Uma base para a validação do usuário
 // Criei essa base para usar .refine e .transform
 // e validar se a duas senhas são iguais e remover
 // a repetição da senha
 const CreateUserBase = z.object({
-  name: z.string().trim().min(4, 'Nome precisa ter um mínimo de 4 caracteres'),
-  email: z.string().trim().email({ message: 'E-mail inválido' }),
+  name: z.string().trim().min(4, "Nome precisa ter um mínimo de 4 caracteres"),
+  email: z.string().trim().email({ message: "E-mail inválido" }),
   password: z
     .string()
     .trim()
-    .min(6, 'Senha precisa ter um mínimo de 6 caracteres'),
+    .min(6, "Senha precisa ter um mínimo de 6 caracteres"),
   password2: z
     .string()
     .trim()
-    .min(6, 'Confirmação de senha precisa ter um mínimo de 6 caracteres'),
+    .min(6, "Confirmação de senha precisa ter um mínimo de 6 caracteres"),
 });
 
 export const CreateUserSchema = CreateUserBase.refine(
-  data => {
+  (data) => {
     // Confirma se password e password2 são iguais
     return data.password === data.password2;
   },
   {
-    path: ['password2'], // aponta o erro pro campo de confirmação
-    message: 'As senhas não conferem',
+    path: ["password2"], // aponta o erro pro campo de confirmação
+    message: "As senhas não conferem",
   },
 ).transform(({ email, name, password }) => {
   // Remove o campo password2
@@ -36,9 +36,9 @@ export const CreateUserSchema = CreateUserBase.refine(
 });
 
 export const PublicUserSchema = z.object({
-  id: z.string().default(''),
-  name: z.string().default(''),
-  email: z.string().default(''),
+  id: z.string().default(""),
+  name: z.string().default(""),
+  email: z.string().default(""),
 });
 
 export const UpdatePasswordSchema = z
@@ -46,24 +46,24 @@ export const UpdatePasswordSchema = z
     currentPassword: z
       .string()
       .trim()
-      .min(6, 'Senha precisa ter um mínimo de 6 caracteres'),
+      .min(6, "Senha precisa ter um mínimo de 6 caracteres"),
     newPassword: z
       .string()
       .trim()
-      .min(6, 'Nova senha precisa ter um mínimo de 6 caracteres'),
+      .min(6, "Nova senha precisa ter um mínimo de 6 caracteres"),
     newPassword2: z
       .string()
       .trim()
-      .min(6, 'Confirmação de senha precisa ter um mínimo de 6 caracteres'),
+      .min(6, "Confirmação de senha precisa ter um mínimo de 6 caracteres"),
   })
   .refine(
-    data => {
+    (data) => {
       // Confirma se newPassword e newPassword2 são iguais
       return data.newPassword === data.newPassword2;
     },
     {
-      path: ['newPassword2'], // aponta o erro pro campo de confirmação
-      message: 'As senhas não conferem',
+      path: ["newPassword2"], // aponta o erro pro campo de confirmação
+      message: "As senhas não conferem",
     },
   )
   .transform(({ currentPassword, newPassword }) => {
