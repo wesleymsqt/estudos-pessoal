@@ -12,5 +12,23 @@ type UpdatePasswordActionState = {
   success: boolean;
 };
 
+export async function updatePasswordAction(
+  state: UpdatePasswordActionState,
+  formData: FormData,
+): Promise<UpdatePasswordActionState> {
+  const user = await getPublicUserFromApi();
 
+  if (!user) {
+    await deleteLoginSession();
+
+    return {
+      errors: ['Você precisa fazer login novamente'],
+      success: false,
+    };
+  }
+
+  
+
+  await deleteLoginSession();
+  redirect('/login?userChanged=1');
 }
