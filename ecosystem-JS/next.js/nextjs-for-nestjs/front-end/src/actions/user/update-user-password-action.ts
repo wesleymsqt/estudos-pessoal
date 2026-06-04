@@ -27,6 +27,23 @@ export async function updatePasswordAction(
     };
   }
 
+  if (!(formData instanceof FormData)) {
+    return {
+      errors: ['Dados inválidos'],
+      success: false,
+    };
+  }
+
+  const formObj = Object.fromEntries(formData.entries());
+  const parsedFormData = UpdatePasswordSchema.safeParse(formObj);
+
+  if (!parsedFormData.success) {
+    return {
+      errors: getZodErrorMessages(parsedFormData.error.format()),
+      success: false,
+    };
+  }
+
   
 
   await deleteLoginSession();
