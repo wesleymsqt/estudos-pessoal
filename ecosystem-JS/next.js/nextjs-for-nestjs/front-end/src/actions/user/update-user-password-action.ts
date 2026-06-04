@@ -44,7 +44,20 @@ export async function updatePasswordAction(
     };
   }
 
-  
+  const updatePasswordRes = await authenticatedApiRequest(`/user/me/password`, {
+    method: 'PATCH',
+    body: JSON.stringify(parsedFormData.data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!updatePasswordRes.success) {
+    return {
+      errors: updatePasswordRes.errors,
+      success: false,
+    };
+  }
 
   await deleteLoginSession();
   redirect('/login?userChanged=1');
